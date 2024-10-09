@@ -14,7 +14,7 @@ backend-local-build:
 	cd watts-up-back && go build cmd/server/main.go
 
 backend-cross-build:
-	cd watts-up-back && GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/main.go
+	cd watts-up-back && GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build cmd/server/main.go
 
 build-local: frontend-install frontend-build backend-local-build
 	rm -rf build

@@ -1,0 +1,52 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+}
+
+.login-image {
+  background: url('../assets/images/light-bulb.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.login-title {
+  font-weight: 900;
+  font-size: 36px;
+  color: var(--primary-dark); 
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--neutral);
+  margin-bottom: 36px;
+}
+
+.login-button {
+  background-color: var(--primary-dark); 
+  color: var(--on-primary-dark); 
+  height: 50px;
+  border-radius: 16px;
+  text-transform: none; 
+}
+
+
+.forgot-password, .register-link {
+  color: var(--secondary-dark);
+  font-size: 14px;
+}
+
+.forgot-password:hover, .register-link:hover {
+  color: var(--neutral); 
+}

@@ -1,0 +1,51 @@
+.register-page {
+  display: flex;
+  height: 100vh;
+}
+
+.register-image {
+  background: url('../assets/images/light-bulb.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.register-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-card {
+  width: 400px;
+  padding: 20px;
+}
+
+.register-title {
+  font-weight: 900;
+  font-size: 36px;
+  color: var(--primary-dark); 
+  margin-bottom: 10px;
+}
+
+.register-subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--neutral);
+  margin-bottom: 36px;
+}
+
+.register-button {
+  background-color: var(--primary-dark); 
+  color: var(--on-primary-dark); 
+  height: 50px;
+  border-radius: 16px;
+  text-transform: none; 
+}
+
+.login-link {
+  color: var(--secondary-dark);
+  font-size: 14px;
+}
+
+.login-link:hover {
+  color: var(--neutral); 
+}

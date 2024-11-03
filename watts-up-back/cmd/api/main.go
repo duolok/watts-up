@@ -2,28 +2,27 @@ package main
 
 import (
 	"log"
-	"os"
-
-	"github.com/joho/godotenv"
 	"gitlab.com/duolok/watts-up/watts-up-back/internal/router"
+	"gitlab.com/duolok/watts-up/watts-up-back/pkg/config"
 )
 
 func main() {
-    err := godotenv.Load()
-    if err != nil {
-        log.Println("No .env file found")
+    EnvConfig := config.LoadConfig()
+    if EnvConfig == nil {
+        log.Fatal("EnvConfig is not loaded")
     }
 
     router.Init()
-    r := router.Router
-
-    port := os.Getenv("PORT")
-    if port == "" {
-        port = "8080" 
+    if router.Router == nil {
+        log.Fatal("Router is not initialized")
     }
 
+    r := router.Router
+
+    port := EnvConfig.Server.Port
     log.Printf("Starting server on port %s...", port)
     if err := r.Run(":" + port); err != nil {
         log.Fatalf("Failed to start server: %v", err)
     }
 }
+

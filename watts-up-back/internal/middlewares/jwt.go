@@ -1,12 +1,11 @@
 package middlewares
 
 import (
-	"go/token"
 	"net/http"
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/duolok/watts-up/watts-up-back/internal/pkg/utils"
+    "gitlab.com/duolok/watts-up/watts-up-back/pkg/utils"
 )
 
 func Jwt() gin.HandlerFunc {

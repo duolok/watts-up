@@ -2,17 +2,17 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-    "gitlab.com/duolok/watts-up/watts-up-back/internal/controllers"
+    "gitlab.com/duolok/watts-up/watts-up-back/internal/handlers"
 )
 
-var publicController = new(controllers.PublicController)
+var publicHandler = new(handler.PublicHandler)
 
 
 func LoadPublicRoutes(r *gin.Engine) *gin.RouterGroup {
 
     public := r.Group("/public")
     {
-        public.GET("/ping", publicController.Ping)
+        public.GET("/ping", publicHandler.StatusHandler)
     }
 
     return public

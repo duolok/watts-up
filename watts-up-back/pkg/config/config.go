@@ -8,37 +8,45 @@ import (
 )
 
 type Config struct {
-	PostgreSQL  Mysql
+	PostgreSQL  PostgreSql
 	Redis  Redis
 	Server Server
 	Jwt    Jwt
-	Mongo  Mongo
 }
 
 var EnvConfig *Config
 
 func LoadConfig() *Config {
+    path, err := os.Getwd()
+    if err != nil {
+        panic(err)
+    }
 
-	path, err := os.Getwd() // get curent path
-	if err != nil {
-		panic(err)
-	}
+    fmt.Printf("Looking for config in: %s\n", path)
 
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
-	viper.AddConfigPath(path + "/configs") 
+    viper.SetConfigName("config")
+    viper.SetConfigType("yaml")
+    viper.AddConfigPath(path + "/pkg/config")
+    viper.AddConfigPath(".")
+    viper.AddConfigPath("./config") 
 
-	if err := viper.ReadInConfig(); err != nil { 
-		panic(fmt.Errorf("fatal error config file: %w", err))
-	}
+    err = viper.ReadInConfig()
+    if err != nil {
+        fmt.Printf("Error reading config file: %v\n", err)
+        panic(fmt.Errorf("fatal error config file: %w", err))
+    }
 
-	config := &Config{}
-	if err := viper.Unmarshal(config); err != nil {
-		panic(err)
-	}
+    config := &Config{}
+    err = viper.Unmarshal(config)
+    if err != nil {
+        fmt.Printf("Error unmarshaling config: %v\n", err)
+        panic(err)
+    }
 
-	return config
+    fmt.Println("Config successfully loaded.")
+    return config
 }
+
 
 func Init() {
 	EnvConfig = LoadConfig()

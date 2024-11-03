@@ -8,7 +8,7 @@ frontend-build:
 	cd watts-up-front && npm run build
 
 backend-run:
-	cd watts-up-back && go run cmd/server/main.go --dev --debug
+	cd watts-up-back && go run cmd/api/main.go --dev --debug
 
 backend-local-build:
 	cd watts-up-back && go build cmd/server/main.go

@@ -6,7 +6,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func StatusHandler(c *gin.Context) {
+type PublicHandler struct{}
+
+func (PublicHandler *PublicHandler) StatusHandler(c *gin.Context) {
     c.JSON(http.StatusOK, gin.H {
         "status": "ok",
     })

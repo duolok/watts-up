@@ -2,8 +2,10 @@ package utils
 
 import (
 	"fmt"
+    "time"
+
 	"github.com/golang-jwt/jwt/v5"
-	"time"
+    "gitlab.com/duolok/watts-up/watts-up-back/pkg/config"
 )
 
 type Claims struct {
@@ -14,7 +16,7 @@ type Claims struct {
 }
 
 func GenerateToken(claims *Claims) string {
-    EnvConfig := configs.EnvConfig
+    EnvConfig := config.EnvConfig
 
     claims.ExpiresAt = jwt.NewNumericDate(time.Now().Add(time.Minute * 60))
 
@@ -28,7 +30,7 @@ func GenerateToken(claims *Claims) string {
 
 
 func JwtVerify(tokenStr string) (*Claims, error) {
-    EnvConfig := configs.EnvConfig
+    EnvConfig := config.EnvConfig
     token, err := jwt.ParseWithClaims(tokenStr, &Claims{}, func(token *jwt.Token) (interface{}, error) {
         if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
             return nil, fmt.Errorf("Unexpected signing method: %v", token.Header["alg"])

@@ -26,7 +26,7 @@ func LoadConfig() *Config {
 
     viper.SetConfigName("config")
     viper.SetConfigType("yaml")
-    viper.AddConfigPath(path + "/pkg/config")
+    viper.AddConfigPath(path)
     viper.AddConfigPath(".")
     viper.AddConfigPath("./config") 
 

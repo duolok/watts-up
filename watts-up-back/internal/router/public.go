@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/gin-gonic-gin"
+	"github.com/gin-gonic/gin"
     "gitlab.com/duolok/watts-up-back/watts-up/internal/controllers"
 )
 

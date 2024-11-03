@@ -1,0 +1,8 @@
+CREATE TABLE households (
+    id SERIAL PRIMARY KEY,
+    address VARCHAR(255) NOT NULL,
+    identifier VARCHAR(100) UNIQUE NOT NULL,
+    owner_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

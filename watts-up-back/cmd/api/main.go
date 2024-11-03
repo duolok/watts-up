@@ -4,8 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/gin-gonic/gin"
-	"gitlab.com/duolok/watts-up/internal/router"
+	"github.com/joho/godotenv"
 	"gitlab.com/duolok/watts-up/watts-up-back/internal/router"
 )
 

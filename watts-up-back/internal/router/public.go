@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-    "gitlab.com/duolok/watts-up-back/watts-up/internal/controllers"
+    "gitlab.com/duolok/watts-up/watts-up-back/internal/controllers"
 )
 
 var publicController = new(controllers.PublicController)

@@ -235,7 +235,6 @@ const Sidebar = ({ userRole }) => {
             {commonItems}
             {userRole === "Admin" && adminItems}
             {userRole === "User" && userItems}
-            {userRole === "Guest" && guestItems}
 
             <Item
               title="Logout"

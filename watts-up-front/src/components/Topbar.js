@@ -18,7 +18,7 @@ const Topbar = () => {
     <Box display="flex" justifyContent="space-between" p={2}>
       <Box display="flex" alignItems="center">
         <Typography
-          variant="h4" 
+          variant="h3" 
           sx={{
             color:
               theme.palette.mode === "dark"

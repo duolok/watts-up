@@ -158,6 +158,11 @@ const Sidebar = ({ userRole }) => {
   return (
     <Box
       sx={{
+        position: "sticky",
+        top: 0,
+        height: "100vh",
+        zIndex: 1,
+
         "& .pro-sidebar-inner": {
           background: `${colors.primary[500]} !important`,
         },

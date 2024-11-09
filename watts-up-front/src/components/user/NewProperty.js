@@ -228,7 +228,6 @@ const HouseholdsStep = ({ households, handleHouseholdChange, addHousehold, remov
             mt: 2, 
             pt: 2, 
             borderTop: index !== 0 ? `1px solid ${theme.palette.divider}` : 0,
-            backgroundColor: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
             padding: 2,
             borderRadius: 1
           }}

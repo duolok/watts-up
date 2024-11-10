@@ -9,6 +9,9 @@ import MediaStep from './steps/MediaStep';
 import HouseholdsStep from './steps/HouseholdsStep';
 import StyledPaper from './steps/StyledPaper';
 import { useTheme } from '@mui/material/styles';
+import DialogComponent from '../common/DialogComponent';
+import SnackbarComponent from '../common/SnackbarComponent';
+
 
 const steps = ["Basic Information", "Location", "Media Upload", "Households"];
 
@@ -63,37 +66,19 @@ const NewPropertyComponent = () => {
             )}
           </Box>
         </StyledPaper>
-
-        <Dialog
+        <DialogComponent
           open={openDialog}
           onClose={() => setOpenDialog(false)}
-          BackdropComponent={Backdrop}
-          BackdropProps={{ sx: { backgroundColor: "rgba(0, 0, 0, 0.9)", backdropFilter: "blur(5px)" } }}
-          PaperProps={{ sx: { padding: 3, borderRadius: 3, maxWidth: 600, backgroundColor: theme.palette.mode === "dark" ? "#333333" : theme.palette.background.paper, color: theme.palette.text.primary, boxShadow: theme.shadows[10] } }} >
+          onConfirm={handleConfirmSubmit}
+          title="Confirm"
+          message="Are you sure you want to submit this property information?"
+        />
 
-          <DialogTitle sx={{ color: theme.palette.primary.main, fontSize: "1.4rem", textAlign: "center", fontWeight: "bold" }}>Confirm Submission</DialogTitle>
-          <DialogContent>
-            <DialogContentText sx={{ color: theme.palette.text.secondary, textAlign: "center", fontSize: "1.1rem" }}>
-              Are you sure you want to submit this property information?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions sx={{ justifyContent: "center" }}>
-            <Button onClick={() => setOpenDialog(false)} color="primary" variant="outlined">Cancel</Button>
-            <Button onClick={handleConfirmSubmit} color="primary" variant="contained" sx={{ ml: 2 }}>Confirm</Button>
-          </DialogActions>
-
-        </Dialog>
-
-        <Snackbar
+        <SnackbarComponent
           open={openSnackbar}
-          autoHideDuration={6000}
           onClose={() => setOpenSnackbar(false)}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }} >
-
-          <Alert onClose={() => setOpenSnackbar(false)} severity="success" variant="filled" sx={{ width: "100%", backgroundColor: theme.palette.mode === "dark" ? "#B0BEC5" : "#333333", color: theme.palette.mode === "dark" ? "#333333" : "#FFFFFF" }}>
-            Property information successfully submitted!
-          </Alert>
-        </Snackbar>
+          message="Property information successfully submitted!"
+        />
 
       </Grid>
     </Grid>
@@ -101,4 +86,3 @@ const NewPropertyComponent = () => {
 };
 
 export default NewPropertyComponent;
-

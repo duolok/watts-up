@@ -155,42 +155,14 @@ const Sidebar = ({ userRole }) => {
     </>
   );
 
-  const guestItems = (
-    <>
-      <Typography
-        variant="h6"
-        color={colors.primary[300]}
-        sx={{ m: "15px 0 5px 20px" }}
-      >
-        Guest Access
-      </Typography>
-      <Item
-        title="FAQ"
-        to="/faq"
-        icon={<HelpOutlineOutlinedIcon />}
-        selected={selected}
-        setSelected={setSelected}
-      />
-      <Item
-        title="Register"
-        to="/register"
-        icon={<PersonOutlinedIcon />}
-        selected={selected}
-        setSelected={setSelected}
-      />
-      <Item
-        title="Login"
-        to="/login"
-        icon={<HomeOutlinedIcon />}
-        selected={selected}
-        setSelected={setSelected}
-      />
-    </>
-  );
-
   return (
     <Box
       sx={{
+        position: "sticky",
+        top: 0,
+        height: "100vh",
+        zIndex: 1,
+
         "& .pro-sidebar-inner": {
           background: `${colors.primary[500]} !important`,
         },
@@ -268,7 +240,6 @@ const Sidebar = ({ userRole }) => {
             {commonItems}
             {userRole === "Admin" && adminItems}
             {userRole === "User" && userItems}
-            {userRole === "Guest" && guestItems}
 
             <Item
               title="Logout"
